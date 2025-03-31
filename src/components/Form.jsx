@@ -48,9 +48,9 @@ export default function Form({ handleSubmit, formData, handleFormData }) {
                     <small id="helpId" className="form-text text-muted">Insert Description</small>
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value={formData.public} id="public" name="public" onChange={handleFormData} />
-                    <label class="form-check-label" for=""> Public </label>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value={formData.public} id="public" name="public" onChange={handleFormData} />
+                    <label className="form-check-label" htmlFor="public"> Public </label>
                 </div>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
