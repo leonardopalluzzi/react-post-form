@@ -25,12 +25,16 @@ export default function Main() {
         e.preventDefault()
         console.log(formData);
 
-        fetch('', {
+        fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts', {
             method: 'POST',
             body: JSON.stringify(formData)
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
 
-
+            })
+            .catch(err => console.error(err))
     }
     return (
         <Form handleSubmit={handleSubmit} formData={formData} handleFormData={handleFormData} />

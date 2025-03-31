@@ -1,7 +1,7 @@
 export default function Form({ handleSubmit, formData, handleFormData }) {
     return (
         <div className="container py-5" data-bs-theme={'dark'}>
-            <form className="form" onSubmit={handleSubmit}>
+            <form method="POST" className="form" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="author" className="form-label">Author</label>
                     <input
