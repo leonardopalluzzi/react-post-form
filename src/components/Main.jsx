@@ -6,14 +6,14 @@ export default function Main() {
         author: '',
         title: '',
         body: '',
-        public: ''
+        public: false
     })
 
     const [error, setError] = useState({
         author: '',
         title: '',
         body: '',
-        public: ''
+        public: false
     })
 
     function handleFormData(e) {
@@ -36,7 +36,11 @@ export default function Main() {
             public: ''
         }
 
-        if (formData.author.trim().length < 2) {
+        const numbRegex = /\d/; //regex
+        console.log(numbRegex.test(2));
+
+
+        if (formData.author.trim().length < 2 || numbRegex.test(formData.author)) {
             errorDetect.author = "Inserire il nome dell'autore"
         }
 
@@ -54,6 +58,8 @@ export default function Main() {
     }
 
     function handleSubmit(e) {
+        console.log(typeof formData.author);
+
         e.preventDefault()
         console.log(formData);
 
