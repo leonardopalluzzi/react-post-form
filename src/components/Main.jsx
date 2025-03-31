@@ -16,6 +16,11 @@ export default function Main() {
         public: false
     })
 
+    const [errDisplay, setErrDisplay] = useState({
+        flag: '',
+        message: ''
+    });
+
     function handleFormData(e) {
         const type = e.target.type;
         const value = type == 'checkbox' ? e.target.checked : e.target.value;
@@ -80,15 +85,23 @@ export default function Main() {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    setErrDisplay({
+                        flag: false,
+                        message: 'Form inviato con successo'
+                    })
 
                 })
                 .catch(err => console.error(err))
         } else {
             console.log('errore');
+            setErrDisplay({
+                flag: true,
+                message: 'Form non inviato, correggere gli errori indicati'
+            })
         }
 
     }
     return (
-        <Form error={error} handleSubmit={handleSubmit} formData={formData} handleFormData={handleFormData} />
+        <Form errDisplay={errDisplay} error={error} handleSubmit={handleSubmit} formData={formData} handleFormData={handleFormData} />
     )
 }

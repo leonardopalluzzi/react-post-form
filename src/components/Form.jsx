@@ -1,4 +1,4 @@
-export default function Form({ handleSubmit, formData, handleFormData, error }) {
+export default function Form({ handleSubmit, formData, handleFormData, error, errDisplay }) {
     return (
         <div className="container py-5" data-bs-theme={'dark'}>
             <form method="POST" className="form" onSubmit={handleSubmit}>
@@ -53,7 +53,8 @@ export default function Form({ handleSubmit, formData, handleFormData, error }) 
                     <label className="form-check-label" htmlFor="public"> Public </label>
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary my-5">Submit</button>
+                <span className={`${errDisplay.flag ? 'text-danger' : 'text-success'} d-block`}>{errDisplay.message}</span>
             </form>
         </div>
     )
