@@ -5,3 +5,10 @@ body {
     background-color: black;
     color: lightgrey;
 }
+
+.error {
+    background-image: url('./error.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    border-color: #ffff00;
+}

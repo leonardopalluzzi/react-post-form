@@ -48,10 +48,6 @@ export default function Main() {
             errorDetect.body = "Inserire una descrizione valida"
         }
 
-        if (formData.public == '') {
-            errorDetect.public = "Selezionare la visibilita del post"
-        }
-
         setError(errorDetect)
 
         return Object.values(errorDetect).every((err) => err === '');
@@ -66,6 +62,8 @@ export default function Main() {
         const errorFlag = errorCatch();
 
         if (errorFlag) {
+            console.log('invio dei dati');
+
             fetch('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts', {
                 method: 'POST',
                 body: JSON.stringify(formData)
@@ -82,6 +80,6 @@ export default function Main() {
 
     }
     return (
-        <Form handleSubmit={handleSubmit} formData={formData} handleFormData={handleFormData} />
+        <Form error={error} handleSubmit={handleSubmit} formData={formData} handleFormData={handleFormData} />
     )
 }
