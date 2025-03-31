@@ -1,12 +1,12 @@
 import { useState } from 'react'
+import Main from './components/Main'
 
 
 function App() {
 
-
   return (
     <>
-      <h1>hello world</h1>
+      <Main />
     </>
   )
 }
